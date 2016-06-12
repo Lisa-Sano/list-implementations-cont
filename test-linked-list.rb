@@ -42,3 +42,10 @@ ll.add(-2)
 ll.display
 puts "Size = #{ll.size}"
 puts "Max = #{ll.max}"
+
+
+# ===200->30->500->-2===
+puts "sorting linked list"
+ll.sort
+ll.display
+
