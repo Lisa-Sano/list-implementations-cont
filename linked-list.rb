@@ -133,7 +133,20 @@ class LinkedList
 
   # homework
   def reverse
+    previous = nil
+    current = @head
+    the_next = current.next_node
 
+    until the_next.nil?
+      current.next_node = previous
+
+      previous = current
+      current = the_next
+      the_next = the_next.next_node
+    end
+
+    current.next_node = previous
+    @head = current
   end
 
 end
