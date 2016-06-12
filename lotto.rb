@@ -13,6 +13,7 @@ class Lotto
   end
 
   def display_ticket
+    @ticket.sort
     @ticket.display
   end
 end
