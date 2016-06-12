@@ -44,8 +44,15 @@ puts "Size = #{ll.size}"
 puts "Max = #{ll.max}"
 
 
+puts "current linked list is: "
+ll.display
+
+puts "reverse the linked list"
+ll.reverse
+ll.display
+
 # ===200->30->500->-2===
-puts "sorting linked list"
+puts "sort the linked list"
 ll.sort
 ll.display
 
