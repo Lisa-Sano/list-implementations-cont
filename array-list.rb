@@ -14,7 +14,7 @@ class ArrayList
   # "deletes" last value
   def delete
     return nil if empty?
-    #@storage[@size] = nil
+    # @storage[@size] = nil
     @size -= 1
   end
 
@@ -53,12 +53,29 @@ class ArrayList
   end
 
   def sort
-    @storage.sort!
+    # just doing @storage.sort! doesn't work if there are nil values in the array
+    array = @storage.take(size)
+    array.sort!
+
+    return reassign(array)
   end
 
   # homework
   def reverse
+    array = @storage.take(size)
+    array.reverse!
 
+    return reassign(array)
+  end
+
+  private
+
+  def reassign(array)
+    array.each_with_index do |num, index|
+      @storage[index] = num
+    end
+
+    return @storage
   end
 
 end
