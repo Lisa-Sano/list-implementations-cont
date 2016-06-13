@@ -98,7 +98,11 @@ class LinkedList
   end
 
   # homework
-  def sort
+  def sort(done = false)
+    # return out of the method if nothing had to be reassigned in the last loop
+    # (meaning sorted was still true by the end of the last loop)
+    return done if done
+
     sorted = true
     previous = @head
     current = previous.next_node
@@ -130,11 +134,8 @@ class LinkedList
       the_next = current.next_node
     end
 
-    # return out of the method if sorted == true still (meaning no pointers had to be reassigned)
-    return true if sorted
-
-    # keep running this sort method as long as sorted == false
-    sort
+    # call this method again with the value of sorted (if true, next loop will return out)
+    sort(sorted)
   end
 
   # homework
