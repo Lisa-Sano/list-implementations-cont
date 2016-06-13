@@ -56,3 +56,16 @@ puts "sort the linked list"
 ll.sort
 ll.display
 
+puts "\nsort linked list with duplicate values"
+list2 = LinkedList.new
+list2.add(3)
+list2.add(13)
+list2.add(51)
+list2.add(12)
+list2.add(3)
+puts "pre-sort:"
+list2.display
+list2.sort
+puts "post-sort:"
+list2.display
+
