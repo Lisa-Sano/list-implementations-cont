@@ -100,21 +100,25 @@ class LinkedList
   # homework
   def sort
     sorted = true
-    node_1 = @head
-    node_2 = node_1.next_node
-
-    if node_1.value > node_2.value
-      node_1.next_node = node_2.next_node
-      node_2.next_node = node_1
-      @head = node_2
-    end
-
     previous = @head
     current = previous.next_node
+
+    # if the value of @head is greater than the next node's value
+    # reassign next_nodes and reassign @head
+    if previous.value > current.value
+      previous.next_node = current.next_node
+      current.next_node = previous
+      @head = current
+      previous = current
+      current = previous.next_node
+    end
+
     the_next = current.next_node
 
+    # loop until the end of the linked list is reached
     until the_next.nil?
       if current.value > the_next.value
+        # if anything wasn't in the right place, the list was not sorted in this run-through
         sorted = false
         current.next_node = the_next.next_node
         the_next.next_node = current
@@ -123,11 +127,13 @@ class LinkedList
 
       previous = current
       current = the_next
-      the_next = the_next.next_node
+      the_next = current.next_node
     end
 
+    # return out of the method if sorted == true still (meaning no pointers had to be reassigned)
     return true if sorted
 
+    # keep running this sort method as long as sorted == false
     sort
   end
 
